@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Dashboard</h2>
+        <p class="text-gray-600">Track your Dosha predictions and health insights</p>
+    </div>
+    
+    <div class="grid md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-chart-line text-teal-600"></i>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-gray-800">{{ predictions|length }}</p>
+                    <p class="text-sm text-gray-600">Total Predictions</p>
+                </div>
+            </div>
+        </div>
+        
+        <a href="{{ url_for('predict') }}" class="bg-gradient-to-r from-teal-600 to-blue-600 text-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-plus text-white"></i>
+                </div>
+                <div>
+                    <p class="text-lg font-bold">New Prediction</p>
+                    <p class="text-sm opacity-90">Get your Dosha result</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    {% if predictions %}
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="p-6 border-b border-gray-200">
+            <h3 class="text-xl font-bold text-gray-800">Recent Predictions</h3>
+        </div>
+        
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Prediction</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Humidity</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Temperature</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">SpO2</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">BP</th>
+                        
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    {% for prediction in predictions %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            {{ prediction[8][:19] }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium 
+                                {% if prediction[5] == 'Kapha' %}bg-green-100 text-green-800
+                                {% elif prediction[5] == 'Pitta' %}bg-amber-100 text-amber-800
+                                {% else %}bg-purple-100 text-purple-800{% endif %}">
+                                {{ prediction[6] }}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ prediction[2] }}%</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ prediction[3] }}°C</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ prediction[4] }}%</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ prediction[5] }} mmHg</td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+    <div class="bg-white p-12 rounded-2xl shadow-xl text-center">
+        <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-chart-line text-gray-400 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">No Predictions Yet</h3>
+        <p class="text-gray-600 mb-6">Get started by making your first Dosha prediction</p>
+        <a href="{{ url_for('predict') }}" class="bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 transition-all duration-300 inline-block">
+            Make First Prediction
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

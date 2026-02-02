@@ -1,0 +1,1039 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="min-h-screen flex items-center justify-center -mt-8">
+    <div class="text-center">
+        <!-- Header Section -->
+        <div class="mb-8">
+            <i class="fas fa-leaf text-teal-600 text-6xl mb-4"></i>
+            <h1 class="text-5xl font-bold text-gray-800 mb-4">Discover Your Dosha</h1>
+            <p class="text-xl text-gray-600 mb-8">
+                Ancient Ayurvedic wisdom meets modern AI technology
+            </p>
+        </div>
+
+        <!-- Dosha Types Section -->
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <!-- Kapha -->
+            <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-mountain text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Kapha Prakṛti</h3>
+                <p class="text-gray-600">Earth & Water elements. Stable and nurturing.</p>
+            </div>
+
+            <!-- Pitta -->
+            <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-fire text-amber-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Pitta Prakṛti</h3>
+                <p class="text-gray-600">Fire & Water elements. Dynamic and focused.</p>
+            </div>
+
+            <!-- Vata -->
+            <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-wind text-purple-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Vāta Prakṛti</h3>
+                <p class="text-gray-600">Air & Space elements. Creative and energetic.</p>
+            </div>
+        </div>
+
+        <!-- Daily Usage Food Gallery Section -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Daily Dosha-Balancing Foods</h2>
+            <p class="text-gray-600 mb-8">
+                Click on each food image to discover its Ayurvedic properties and dosha benefits
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- Food Item 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                                 alt="Fresh Vegetables"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Fresh Vegetables</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Śāka Varga)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Vegetables Details</h3>
+                                <button onclick="toggleFoodInfo('food1')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="food1-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="food1-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Common Names</h4>
+                                    <p class="text-sm text-gray-600">Leafy greens, root vegetables, gourds, beans</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Benefits in Pathya</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Improve digestion, balance doshas, provide essential nutrients, detoxify body
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Simple Remedies</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Steamed vegetables with spices, vegetable soups, cooked greens with ghee
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                                 alt="Seasonal Fruits"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Seasonal Fruits</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Phala Varga)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Fruits Details</h3>
+                                <button onclick="toggleFoodInfo('food2')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="food2-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="food2-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Common Names</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Mango, banana, apple, pomegranate, berries, citrus fruits
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Benefits in Pathya</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Natural sweetness, cooling properties, rich in antioxidants, improve vitality
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Simple Remedies</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Fresh fruit juice, fruit salads, dried fruits, fruit-based desserts
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                                 alt="Whole Grains"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Whole Grains</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Dhānya Varga)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Grains Details</h3>
+                                <button onclick="toggleFoodInfo('food3')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="food3-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="food3-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Common Names</h4>
+                                    <p class="text-sm text-gray-600">Rice, wheat, barley, millet, oats, quinoa</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Benefits in Pathya</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Provide energy, support digestion, nourish tissues, balance agni
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Simple Remedies</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Khichdi, porridge, whole grain bread, fermented grains
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://cdn.shopify.com/s/files/1/0334/3931/8155/files/1_18ec8b3c-8279-4fca-a981-446982949eab.jpg?v=1738752201"
+                                 alt="Herbal Teas"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Herbal Teas</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Auṣadha Dravya)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Herbal Teas Details</h3>
+                                <button onclick="toggleFoodInfo('food4')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="food4-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="food4-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Common Names</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Ginger tea, tulsi tea, mint tea, fennel tea, cinnamon tea
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Benefits in Pathya</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Detoxify, improve digestion, boost immunity, balance doshas
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Simple Remedies</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Herbal infusions, spice teas, medicinal decoctions, warm beverages
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ayurvedic Spices Section -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Ayurvedic Healing Spices</h2>
+            <p class="text-gray-600 mb-8">
+                Click on each spice image to discover its medicinal properties and dosha benefits
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- Spice Item 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOkw0DEhmD6853a_5Mm5Z0P-h7DFDLM8ieVQ&s"
+                                 alt="Turmeric"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Turmeric</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Haridrā)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Turmeric Details</h3>
+                                <button onclick="toggleFoodInfo('spice1')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="spice1-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="spice1-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Sanskrit Name</h4>
+                                    <p class="text-sm text-gray-600">Haridrā, Rajani, Gauri</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Ayurvedic Properties</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Katu (pungent), Tikta (bitter); Ushna Virya (heating); Kaphavatahara (reduces Kapha & Vata)
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Medicinal Uses</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Anti-inflammatory, antioxidant, supports digestion, purifies blood, enhances skin health
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spice Item 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://m.media-amazon.com/images/I/41Pvfjsk9uS._AC_UF1000,1000_QL80_.jpg"
+                                 alt="Ginger"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Ginger</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Ārdraka/Śuṇṭhī)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Ginger Details</h3>
+                                <button onclick="toggleFoodInfo('spice2')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="spice2-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="spice2-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Sanskrit Name</h4>
+                                    <p class="text-sm text-gray-600">Ārdraka (fresh), Śuṇṭhī (dry), Viśvabheṣaja</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Ayurvedic Properties</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Katu (pungent); Ushna Virya (heating); Tridoshahara (balances all three doshas)
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Medicinal Uses</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Kindles digestive fire, relieves nausea, clears respiratory tract, reduces inflammation
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spice Item 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://5.imimg.com/data5/SELLER/Default/2022/5/YV/XJ/RV/150323108/cummin-500x500.jpg"
+                                 alt="Cumin"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Cumin</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Jīraka)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Cumin Details</h3>
+                                <button onclick="toggleFoodInfo('spice3')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="spice3-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="spice3-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Sanskrit Name</h4>
+                                    <p class="text-sm text-gray-600">Jīraka, Ajaji, Kana</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Ayurvedic Properties</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Katu (pungent), Tikta (bitter); Ushna Virya (heating); Kaphavatahara (reduces Kapha & Vata)
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Medicinal Uses</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Enhances digestion, relieves bloating, improves appetite, detoxifies body
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spice Item 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlFdokLQFYhbewTTFA0e5TPiM9biNXvJ3DmA&s"
+                                 alt="Cinnamon"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Cinnamon</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Tvak)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Cinnamon</h3>
+                                <button onclick="toggleFoodInfo('spice4')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="spice4-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="spice4-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Sanskrit Name</h4>
+                                    <p class="text-sm text-gray-600">Tvak, Dārusitā, Utkaṭa</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Ayurvedic Properties</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Katu (pungent), Tikta (bitter), Madhura (sweet); Ushna Virya (heating); Kaphavatahara
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Medicinal Uses</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Manages blood sugar, improves circulation, relieves cold, enhances digestion
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spice Item 5 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://cdn.i-scmp.com/sites/default/files/styles/1020x680/public/d8/images/canvas/2023/01/23/53e9e78a-e43e-4763-85a4-54e8f4a0ccb3_c4415be3.jpg?itok=KlCWbAtE&v=1674459361"
+                                 alt="Cardamom"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Cardamom</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Elā)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Cardamom</h3>
+                                <button onclick="toggleFoodInfo('spice5')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="spice5-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="spice5-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Sanskrit Name</h4>
+                                    <p class="text-sm text-gray-600">Elā, Truti, Sūkṣmailā</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Ayurvedic Properties</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Katu (pungent), Madhura (sweet); Sheeta Virya (cooling); Tridoshahara (balances all doshas)
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Medicinal Uses</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Freshens breath, aids digestion, relieves nausea, supports urinary health
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spice Item 6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2SwQiBBRf5sikmTVXWViyPUrIq8NLRg84Mg&s"
+                                 alt="Black Pepper"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Black Pepper</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Marica)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Black Pepper</h3>
+                                <button onclick="toggleFoodInfo('spice6')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="spice6-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="spice6-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Sanskrit Name</h4>
+                                    <p class="text-sm text-gray-600">Marica, Uṣaṇa, Vellaja</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Ayurvedic Properties</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Katu (pungent); Ushna Virya (heating); Kaphavatahara (reduces Kapha & Vata)
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Medicinal Uses</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Enhances bioavailability of nutrients, clears respiratory tract, improves digestion
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- Ayurvedic Hospitals Section -->
+<div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Famous Ayurvedic Hospitals in Bangalore</h2>
+    <p class="text-gray-600 mb-8">
+        Click on each hospital to discover their specialties and treatment approaches
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <!-- Hospital Item 1 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                         alt="Arya Vaidya Sala"
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <p class="text-sm font-medium text-gray-700">Arya Vaidya Sala</p>
+                    <p class="text-xs text-teal-600 font-semibold">(Kottakkal Branch)</p>
+                </div>
+                <div class="md:w-2/3 p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-gray-800">Arya Vaidya Sala</h3>
+                        <button onclick="toggleFoodInfo('hospital1')"
+                                class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                            <span id="hospital1-toggle">Show Details</span>
+                        </button>
+                    </div>
+                    <div id="hospital1-info" class="food-info hidden space-y-4 text-left">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-green-600 mb-1">Location & Specialties</h4>
+                            <p class="text-sm text-gray-600">Basavanagudi, Traditional Panchakarma, Rheumatology, Neurology</p>
+                        </div>
+                        <div class="border-l-4 border-amber-500 pl-4">
+                            <h4 class="font-semibold text-amber-600 mb-1">Treatment Approach</h4>
+                            <p class="text-sm text-gray-600">
+                                Classical Kerala Ayurveda treatments, authentic Panchakarma therapies, herbal medicine manufacturing
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-purple-600 mb-1">Unique Features</h4>
+                            <p class="text-sm text-gray-600">
+                                100+ years of legacy, GMP certified pharmacy, residential treatment facilities, yoga integration
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospital Item 2 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                         alt="Jiva Ayurveda"
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <p class="text-sm font-medium text-gray-700">Jiva Ayurveda</p>
+                    <p class="text-xs text-teal-600 font-semibold">(Holistic Healing Center)</p>
+                </div>
+                <div class="md:w-2/3 p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-gray-800">Jiva Ayurveda</h3>
+                        <button onclick="toggleFoodInfo('hospital2')"
+                                class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                            <span id="hospital2-toggle">Show Details</span>
+                        </button>
+                    </div>
+                    <div id="hospital2-info" class="food-info hidden space-y-4 text-left">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-green-600 mb-1">Location & Specialties</h4>
+                            <p class="text-sm text-gray-600">Whitefield, Chronic Diseases, Lifestyle Disorders, Stress Management</p>
+                        </div>
+                        <div class="border-l-4 border-amber-500 pl-4">
+                            <h4 class="font-semibold text-amber-600 mb-1">Treatment Approach</h4>
+                            <p class="text-sm text-gray-600">
+                                Telemedicine consultations, personalized treatment plans, diet and lifestyle counseling, herbal formulations
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-purple-600 mb-1">Unique Features</h4>
+                            <p class="text-sm text-gray-600">
+                                Digital Ayurveda platform, research-driven treatments, pan-India network, corporate wellness programs
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospital Item 3 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                         alt="Soukya International"
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <p class="text-sm font-medium text-gray-700">Soukya International</p>
+                    <p class="text-xs text-teal-600 font-semibold">(Holistic Health Center)</p>
+                </div>
+                <div class="md:w-2/3 p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-gray-800">Soukya International</h3>
+                        <button onclick="toggleFoodInfo('hospital3')"
+                                class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                            <span id="hospital3-toggle">Show Details</span>
+                        </button>
+                    </div>
+                    <div id="hospital3-info" class="food-info hidden space-y-4 text-left">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-green-600 mb-1">Location & Specialties</h4>
+                            <p class="text-sm text-gray-600">Whitefield (Outskirts), Integrated Medicine, Detoxification, Rejuvenation</p>
+                        </div>
+                        <div class="border-l-4 border-amber-500 pl-4">
+                            <h4 class="font-semibold text-amber-600 mb-1">Treatment Approach</h4>
+                            <p class="text-sm text-gray-600">
+                                Integrative medicine combining Ayurveda, Homeopathy and Naturopathy, organic farm, personalized wellness
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-purple-600 mb-1">Unique Features</h4>
+                            <p class="text-sm text-gray-600">
+                                30-acre organic farm, international patient services, luxury wellness retreat, celebrity clientele
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospital Item 4 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                         alt="The Art of Living Center"
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <p class="text-sm font-medium text-gray-700">Sri Sri Ayurveda</p>
+                    <p class="text-xs text-teal-600 font-semibold">(Art of Living Campus)</p>
+                </div>
+                <div class="md:w-2/3 p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-gray-800">Sri Sri Ayurveda</h3>
+                        <button onclick="toggleFoodInfo('hospital4')"
+                                class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                            <span id="hospital4-toggle">Show Details</span>
+                        </button>
+                    </div>
+                    <div id="hospital4-info" class="food-info hidden space-y-4 text-left">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-green-600 mb-1">Location & Specialties</h4>
+                            <p class="text-sm text-gray-600">Kanakapura Road, Stress Relief, Mental Wellness, Panchakarma</p>
+                        </div>
+                        <div class="border-l-4 border-amber-500 pl-4">
+                            <h4 class="font-semibold text-amber-600 mb-1">Treatment Approach</h4>
+                            <p class="text-sm text-gray-600">
+                                Combines Ayurveda with meditation and yoga, stress management programs, lifestyle counseling
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-purple-600 mb-1">Unique Features</h4>
+                            <p class="text-sm text-gray-600">
+                                Located in 65-acre Art of Living campus, meditation programs, international wellness retreats
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospital Item 5 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                         alt="Ayushakti Ayurved"
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <p class="text-sm font-medium text-gray-700">Ayushakti Ayurved</p>
+                    <p class="text-xs text-teal-600 font-semibold">(Treatment Center)</p>
+                </div>
+                <div class="md:w-2/3 p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-gray-800">Ayushakti Ayurved</h3>
+                        <button onclick="toggleFoodInfo('hospital5')"
+                                class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                            <span id="hospital5-toggle">Show Details</span>
+                        </button>
+                    </div>
+                    <div id="hospital5-info" class="food-info hidden space-y-4 text-left">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-green-600 mb-1">Location & Specialties</h4>
+                            <p class="text-sm text-gray-600">Jayanagar, Arthritis, Skin Diseases, Respiratory Disorders</p>
+                        </div>
+                        <div class="border-l-4 border-amber-500 pl-4">
+                            <h4 class="font-semibold text-amber-600 mb-1">Treatment Approach</h4>
+                            <p class="text-sm text-gray-600">
+                                Detoxification therapies, herbal treatments, diet plans, lifestyle modifications, panchakarma
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-purple-600 mb-1">Unique Features</h4>
+                            <p class="text-sm text-gray-600">
+                                Specialized in chronic conditions, international branches, research-based treatments
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospital Item 6 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                         alt="Punarvasu Ayurveda"
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <p class="text-sm font-medium text-gray-700">Punarvasu Ayurveda</p>
+                    <p class="text-xs text-teal-600 font-semibold">(Wellness Center)</p>
+                </div>
+                <div class="md:w-2/3 p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-lg font-bold text-gray-800">Punarvasu Ayurveda</h3>
+                        <button onclick="toggleFoodInfo('hospital6')"
+                                class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                            <span id="hospital6-toggle">Show Details</span>
+                        </button>
+                    </div>
+                    <div id="hospital6-info" class="food-info hidden space-y-4 text-left">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-green-600 mb-1">Location & Specialties</h4>
+                            <p class="text-sm text-gray-600">Indiranagar, Wellness Programs, Beauty Treatments, Weight Management</p>
+                        </div>
+                        <div class="border-l-4 border-amber-500 pl-4">
+                            <h4 class="font-semibold text-amber-600 mb-1">Treatment Approach</h4>
+                            <p class="text-sm text-gray-600">
+                                Preventive healthcare, beauty and rejuvenation therapies, stress management, seasonal detox
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-purple-600 mb-1">Unique Features</h4>
+                            <p class="text-sm text-gray-600">
+                                Urban wellness center, corporate packages, customized beauty treatments, modern facilities
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <!-- Ayurvedic Doctors Section -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Legendary Ayurvedic Physicians</h2>
+            <p class="text-gray-600 mb-8">
+                Click on each physician to discover their contributions to Ayurvedic medicine
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- Doctor Item 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="data:image/jpeg;base64,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"
+                                 alt="Sushruta"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Sushruta</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Father of Surgery)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Sushruta</h3>
+                                <button onclick="toggleFoodInfo('doctor1')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="doctor1-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="doctor1-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Time Period</h4>
+                                    <p class="text-sm text-gray-600">Circa 600 BCE</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Major Contributions</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Authored Sushruta Samhita, pioneered plastic surgery, described 300 surgical procedures, 120 surgical instruments
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Legacy</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Father of Surgery, established foundational principles of Ayurvedic surgery
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor Item 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="data:image/jpeg;base64,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"
+                                 alt="Charaka"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Charaka</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Father of Medicine)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Charaka</h3>
+                                <button onclick="toggleFoodInfo('doctor2')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="doctor2-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="doctor2-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Time Period</h4>
+                                    <p class="text-sm text-gray-600">Circa 300 BCE</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Major Contributions</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Authored Charaka Samhita, established principles of internal medicine, emphasized prevention over cure
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Legacy</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Father of Ayurvedic Medicine, foundational text remains essential for Ayurvedic education
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor Item 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="data:image/jpeg;base64,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"
+                                 alt="Vagbhata"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Vagbhata</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Compiler of Knowledge)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Vagbhata</h3>
+                                <button onclick="toggleFoodInfo('doctor3')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="doctor3-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="doctor3-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Time Period</h4>
+                                    <p class="text-sm text-gray-600">Circa 6th-7th Century CE</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Major Contributions</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Authored Ashtanga Hridayam and Ashtanga Sangraha, synthesized previous Ayurvedic knowledge
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Legacy</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Created comprehensive texts that integrated previous Ayurvedic works, made knowledge more accessible
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor Item 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="data:image/jpeg;base64,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"
+                                 alt="Nagarjuna"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Nagarjuna</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Alchemist & Physician)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Nagarjuna</h3>
+                                <button onclick="toggleFoodInfo('doctor4')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="doctor4-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="doctor4-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Time Period</h4>
+                                    <p class="text-sm text-gray-600">Circa 2nd-3rd Century CE</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Major Contributions</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Pioneer of Rasashastra (alchemy), developed mercurial preparations, advanced pharmaceutical techniques
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Legacy</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Father of Indian Alchemy, revolutionized Ayurvedic pharmacy with mineral preparations
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor Item 5 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxQTEhUTExMWFRUXGB0YGBgYFxcdGhsXGhgWGBcdGBobHSggGholHRcYITIiJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGy0lICUvLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIASsAqAMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAFBgMEAAIHAQj/xABCEAABAgMFBQYEAgcIAwEAAAABAhEAAyEEBRIxQQZRYYGREyIycaGxQlLB0eHwBxQjYnKCkhUWJDNTorLCQ2Px8v/EABkBAAMBAQEAAAAAAAAAAAAAAAIDBAEABf/EACsRAAICAgEEAgIBAwUAAAAAAAABAhEDIRIEEzFRIkEyYRSh8PFCUnGBkf/aAAwDAQACEQMRAD8A5CrOPGyiTUxoBXN4UPPEOdI9cbjGyQWDlhwjwmjRxxoaxulMS2KymYsITmfTeTDdZblloA7mOjlSvNqDdCsmVRGY8bmK1mshWWAc/nOL5uJTeIPur7wwy7ElJJSkB8wOEbKlwiWd/RVHp1WxMn2KZLLlJHEVHUZRGJ+8P7w5mXFC1XUhfwsd4pBxzJ+QJYGvAu0P2P5aIpkjlBS03KtPhII6GByklJY04Q2Mk/AmUWvKKykGNYskxqqXDUxTiQAxug1aNVIaMl5xoJbcRqVRnKMI5QIZlY8jwtHmKNoy0bPGRo8ex1Gcj1RYmPEgvEihU+UeDPl9DAhURhMSWezlakoSHUogDzMELmuZdoV3aJHiVoPuYcLBs/JkKQvNaVAgkmhGuY6NC55Yx0w44nJWV7Ns5+q1JdZT0yy3QcskgqTLDEkIYsNe0c+kT2m2BRdRDMzsKdY0lX0AQMTBO5y+52+8RZJ8nooxQlGWwh/Y7ukhPAk11y1avpGs7ZIs6ZgfcQQOsVDtAgZP1CfZzGir+WfCObH3VCrZUosGWy7Z0t3lEgfEKp6iKkuQVGp5CGKVeExWvJyfRNIz9TKi4QX5AR3cCcH7A4u18h1iG3XEmYggsFaHjBy3WeekOEd3ekueY/CAy3ObmDjJ+bFtLwKEy4Z4DhLtuUl/eKBl6HPUNUHjD/LkmBu0t0ujtkiqfFxTvPEe0Uwz26ZPkwKrQoyxVjUfhpFZ9YupHeEVJgpFUSSS0aJmE5mJEiI0ZRvL72VYYKJRKJyBiVFjWfhghKtCqNL03RKETlZJI5QtzGKAOTdqzuEZBMXbNOZ6mMgeYXbA0wVNaxqQzeR9jE81Dl+LdIP7L7MfrcwlSlCX+6HUd53ADJ95jbNaH7Zq7EybOhLBykFXEmpie1XZLXmljvSW9qQRsdk7JCEOpQSAlyGUQKB+kTLkEqFGHCGxjFqmhUnJNtMUrVs6BVMw/wAyXPV29IHXhdpQlwonzyzbIQ/izlqDr5wFvuyFUtRDmgGYZ8RdvzpHn9RDjPXgv6fI5R2ApN1nV6ULYR6xdlWBAPewhvmL9KcIKTJWGWsgVK1Cppkd/wCaQl2u1zpxIYgAtUsfJyebCJlCUmVPIkhnTbpSA4OLMMA3R9IsWO8Za1hPeDs2JqqcBg3vCXZTNqAHahffuc6xfs81xUELxhLcWeOeFoDupnQbOnu9fcwBtdgSZqgA1Aeohns0nuq3hR1DZws37K/aKzBwoyO/fvjlEyMtmqrPKT4lpHOILTNkqQpABViSU5UqGiJF0KJD68R94sybpVk2Xk0YM19nLJ1lVLmYFZpLedHBHAwMmikdC2uuZQmylBOaSlVQMqj/AJGEifY1+Fq4cWYbCzu+TR6WGXJJnnZo1pFFCHgndaQg4gH0rGki7pjDu+LKo3Pvg9dV2nAQU1Ki2RDMNcodOVIRCKuyA3kvQJHJ41NtmH4ugH1EEBYA5Cg3dKgUkVaK02ylKcRAahqQ7HKmcIpDrK2NW89T9IyMMwaRkaYDC7nhHQf0bz0GUtJLKBAoQC2PFQ7qgEQk9kDRxzBHtSDmyiFInoCU4kk9+rjC1XbLJ+UbZklpnYrDNSlCQolWEAVYkkUJJ0JiFRTicA5vAuyKKQQzVfxFTjnUeUX0zRzh8dE+2iRRp5feKF7n9ip97hsNO8N4guiTRwAoNWrfjC9fk09moBnoG7ytQ9WDHXWIuql8tFvSrVMG7U2sIl4CFElZJIZqghi+Tgmo3QpKtKVPjB8WIYTyYwW2jmrmALKAApWYNCwNGNf/AJF2w3ODKSSAoLS/kXqH0IhEZcY2UySsAKtAWDjSWxYgxG4BjElnvDvO2awT/CwBHnSNpdhJmdkKlynoT9osLusiocnd57oPuUDwQ+2K8ZRld1VFEkBsg5pSF+97wSZpZ6pQN1RnF+x3XMRKQFAJVU4SRiqTppzhdvBJE1jnhEAkaqvQ3WW1SQlBJdVCaB8sqCJv7QlAEBCiHfSA10ySoHg3rBL9VakKc2mFxQA25Kp0oLCWCFBwK0JAc8wOsc5vBeGQEukrIwuCCyM6+0dhtlkxSZid6FexjiFsNB5RX00m9E+eKS0XbNbRiCwmmDAQWy1aClivgIRhSFEVcMh6tkAG0gNd8nEgDpBm6Fdg57PtAd/3iibEQRn9oKJ7qFEYSBRIqrgkNGs3tFobs1KLAAqCaNuIDnnBGbfq8kyEp4kn7RUmXtPPyp8kn7wtSfoNxRSl3LPOjdIyJl260H4zyA+0ZG3Iykay5S96twxJxbuB4x0XZjZwISklu0WAouGbUADfWBGwNjlTFuCQpJcgbhzjoFlsoExSg6nPecux8QI3aBt0Knk4sJq1oFrsxfjGoLUhhXZjiJS9YhVdr1asH/I9ndpA6WrjAvaAqwviLEZAbmzL5uHhqTZAM/SAW1MoYUkOM6dITlnyQzHHjIU7fZFLUhLhyE+tQ+41aGO9UhMoMVBmSG1elfvGospM+zADOWlq1PcJ3QZNmYsqgLj7tvaOhXBpmzk1JMQtn5BVagdxJLh8hx6PxhtWRIeZheYtRTJH/JVNz0gbszZ3mzWzoMt5PDgIO3rNEsgIGKYlISVZhJzKUij5kv5ZwEnHgrCVvJQrXtck2dUKAUK95TFznR3HNvKK9hs0+sq0ocj/AC5mIEuPhUXduJ+lTU79YIw4yCd6gG5AcYXL4tFplVmJK07821zFRzB0jcdJVT/7Cm5N+UNWzEt1LBowHuYPKkJ3RzK49qzKW6e8k0Ug5twMOQvxS0hSQnCci6R1dUdKPHYFuTLtrR3Ffwn2MfP9o8A8vpHZrRekxTjHKD/+wfRP1jkFokkAhqBw/lB9P5BzLRYucOB5R0K57AFWeWphXF6KIhEuRHdEdMuEgWVALUKvVbweYHF4Kc27xub1ijPuYK05iGJcxI19oqTrfLT8QeEJsa0LK7kIyL/n8YyCNsvKWSznKMhqbFuKBv6P7amXO6bv4SDwZT+YEdesKWxKJGenBgp+IKSPKON7ESgLQkKSkpwkggs+aeRfowjst2ySuUAfEQyiwqWFaUY584RmUuba36E4JJrZLLtqSWYtvi6UxXs12qGY50i9NKUMFFt0B03d4OWbX9BmSUbqBTmI4QubWJZCef0gneW0MmWSHLg8oX72vHtZIVm5U3ll7gwTkq0HjvkU7Re0tK7OoLRiRKAIJyOBQY7s4EWLaNRtKEJ8BmpYGrOcLvmTWF+8ARaCWBcAp6YTXkesX7lskztpZmJSnCtKgX7xYgk0pFUYRUbZHlySeSv2PGyagJs8nQFXTF949lpUcvERiUpqgFyw3H87opbMWhrSpPzgp5l2iS+71VZZc4owBYWwKklTAIRoG3msTRV0X/6mVJqXUUhAq4cgnqecKdsvabIJBGJALFKqj+U6e0XJt92lUmZNJCFyzhP7Ni6q0BoKJNDvEK1qnz5lZ0xS8ScQqhmdmYDxfu5tWGYoO27GzrilR7fElKgLRZ3APiDeE65U+8M+x9sUtBwICnFQQKEZhzp94Urum9kpSVVSoOR5Q3/ousxK5tHl0IfmOv2h02uJOk0w3aJ89TpHZgkg1Wl6F2YPT8Y5VbF0NM/rHc7VJqkaYvoY4Vb0MW/OcBg8nZX8Q9s/dylpJTkkB+eX1hklyZ6UYQzB6ufPdAa4bzVIxBKcSVJArm41HN4vT9ql1Ak1jMik5GwpRJlXdPV8QHIn6xqdn1/FM6AQLtG0FqV4ZZHk/wBopqtduV8Kv6T9YxQkc5o12nlKkKQkKNQCT5lX29I9iC12S1LSVTh3U6kZOR9YyLca+KI5v5DJ+jsITPQpbDPFiBZsKsuLAdY7RZLTLEsFLYQABXRg0cT2KT2gUFUAOJLHJgGfeCaecOVntmAs4puy4Nwjzp5ZKbryH0+NShQ+JvPcICX5ewZyQWpzgNPvjCDUZZk0GenKFO33t2jgOrWsIn3M64t6KFCGPZte9qM5bCmgbJzviG+7XhSiWgnChIFSKqarNxfpFS77SBNqzAFhxIz9G5wQsstIViYKBDB0FXOjVz6xR8YVH6QqPKbqLoBWW3gYSVAAlip6hi9C7OWy4vk0FbuvSzpmOqdLSkAlIKj4iG0emeUWrvlKAUyJedSUg1D7+cEZS5jOCgDghI+kG80fRsekadtgy6LyT2wWlQUysxi39YfbZKQoTUTAAVqOJw4PdQx+sArs7QzEYpndcZYfomGy9rvSpIUoGhcgGpYAN6QuKc0+I+UlGS5HOtoptnl2YykqOIrcnCc8vI0AoH11halzZbEKSQoVSSCAsaFjrDzelknz1koSES0jCkYUvnm56ZaQr21C0PLtKBNANFCik8xDY4v2H/IpLQtqSVmaofKQOn4Q5foutgBXKp3qjzDOOh9ICWKxgzFt4SKcxR4p7K2hUqcwPeBIdtQTDXD4k7yWzsE1HeHBQ9o4de6GUeB+sdvNoCghY1PrlHEL0dy+/wCsJwfkzZ/iGLqtaZSkLKcebJzyGZG5yIZ7FfcpY76EoPTU/hCrdwcCmUPV3XAhUhCykOoEmgrWnpG5aDgVF33Zk/L/AFCK0/a6QMikeQJ9hF203FLywekVVXDL+X0hUa+zZfoB3xtXLmSloTmptFaEcPOMgsrZ+X8qekZFcM3BUiaeLk7YP2PtKQllDFiQWFR3QpJL9B0hmXhGSSRoawpbFuJyQxYpCWoalwoeg96NBufdE5SiUA4XNQ+8s2oLEUO7lEHC8j2DCbiqSKN5WRai9QOJZ+WcVLHJJLAUZiasASwfmYIIuCdQqCyNQ1X0Z9Isz0osicSkupmSAPiwtUmtaEg5EFuL3NRXFbZz5S2wdKsC5a8RKAzYg+mdd3hgvYJY7MMxTUpIeo5GldITbbbJij2ilAcGBOHLUNDrcs8CySwxqkmqVZEqbTcYzLF8bfk3ppXk0RpQ57P4VEvT6xHYJRE04XYIy358Ins0z9qOBV7QSuyxqXPUQO6EDEo+Ebq8XyzpCkXydFe6XSjF++CTSj5+gjoNpOJCTpAGyypchGFCe0PzKAZxuTEFqvC0JKSgIUjE8zGSGTwOW/OnlDcUlF17JsyclYStiBhIdvKEraMpYvm3V4YrznoUh0LJBoG0OdYUb0tkpKQtTku7a505RTzFKDKMtXZS1TDTunrp6wl2q3TJZQrAUqcmuoO4iGCyWtdstaJfhQHUE6UDDFQ/MIrba2Np6JfyIJPmpRA9oOO3QGVcFY37J7WSJyEoWvs5oOSz3Tl4VZPw9DCNf9nKVqBpX6wKNnKVAQRVbCU4VjEBk+Y/hOnllwju1xdoBdQmqYSuwsGjqslaRJlg6S0Dm0cku1YKgEuXdxuYA1OVeG7SHGReS1AAlIAp4t0TZVTLIO46GVak7zFeYsb4ETLWDnMbyUfvGn6wjeo/zN9YWgmgiudTL2jIGi3yh8IPnX3jI2zKFrZaeEBE1UwJdxl4VMAH8nP5MX/7bKO7OcZ98EHEWdjQtmkUBgFcKQpJUlPeQkqWAO6XctwJSN2nCCCL0RiEs95C2BBdwasAQ70LPxLkiM4XNkXJpIvIvp1HMJoKKyrXvDI730jS9LdIWoCX2hAzKljN6Yd1HziheN3S0JUqUpqVHNyK6fjC9PtaiMIPT7/nWHRxJ7ibJyjqQ62+7LB2eJJtBUaMpaWc72Dxdui90lISThYUqwZqMN0IEpZRLKnqSwrR9D9eUGbtvKUlLLUkEivdWK13AiMy43x3sd08k52tIb7ukqmLODCSpTJdy7nPdrDitKZaQhHhGvzHVR8/ZoW9iZyVlS0EEITmCrxKoM0jTEeUXdob0ElHGJnpUWflIJgxvOpKUfZtG0ilZpzlotWtX7Lr0q/PKCxi8okXfMCZKamoUSM3BVpxqIDzrrWolSnrkD9oO3Se6jhLb1/CLipdExO80lLii9Y41bBOwl1NOmTSMk4QWcV8VOTQNv39papxYMFplpb5UJH/AGUqOi3dZRLkv4aAnoSfeOaSST3s8UxauJdaiPRo9Tp39s8Pr5eioLOhU9T0AH5eKV4yAmsX5BeZNV+8QD5f/Y1tssEEmoTT+JWiR9Yoc0tshx43KVIWxNKDixFO4DM/hDfsxYk2yUV9otCkqwqGItkCC/EeoMKtts5UFP4s+mg4Rc2J7UrmplrKXSFFuBI/7Qma5Rb+z0Ip45KI8f3ORrOX/UY9/ujK/wBRZ/mMDVy7X/rHpEfY2s/+T0MTb9lGgt/dSXl2kz+tX3jIDqstq/1IyC37M0CtkpikY1pCsKmThTvzTnxPrvjLWUTJisIZJJKKmgqoOc+D6tE2zNmBdAUSoEEI1ICSXG8932inaABOVhqjEcJd3QfCeNCDzjMdPLJ/ZIrcUmXZFvThYy0qYMQQWfVmoOpixeS5C0dyVhXRmPMitNTAmyJGIjQjjmPINlRzug1YbXNlNhUcO41SeX2hr09DoJTjxfkBWlAbQNT0eoGmUayZYXmwV7+XHhDPedqlzkjHKTj+YZjy4cKxpcNzCdOQhvEXcUZNSokVZhu3CDcrQrg8b2Nmx8oWeyAKoqYrHl8IHcrzJ5iAG2VuxKbSGy3SCh1hQ4AhgBkAN1POOZX+tSpivX8fvHnRcpTfI9WCUY6OnWRfePnBWZWUPMj8+sJ9w3mVJSVUUQH89YJXvb7WEtZ5KFozK1LSKngeFMtYZj80K6hUrBd2gJA3FA9i/q8F7PKxAHeyRzLKPSFy7rU6AVMCCpKmyHeI6OIZrsnBZBBBSl6/vFx6B+sTOPzKpSfAK2pTS1Z5HLgPWOW2E91L/KD6OT6w3bS2K0lK5ku0hKCk9wpdmDEA8WhMQSJaiNED/iHj1MC0eD1b2VLsntKWf3zzJYD1hlsV1ul1VCAw4rPjV/15GFS4V0SdElS+acv92GOl3bI/YJH7vrrCupl8qKuhxqnNnObzk4ZvOLmwUoS7VaE/uUp8JUD7NG+0sllvA6Rb1SJsucn4kGWeLf8A6HSDg7jQ7Mknf7OiFL6KPKIjLPyKgJZ9vSkAEAeYMW0fpBG9EJ4sy0WZzpBJSwG9hzc0jIXtsdpv1qQmWgposKIBzDKG+rEvGQ7Hh5K2xU8vF1RFcN2EyVEUm0UlQJcVfTRkn+qKQuWaKYaO3lD7stZpZHiUolDAhIDHRw5fXqYJ/qJPwmJYZHFuxvYXg5jKuqa7pS7VqC0EpUidQCU+bhTHyYjKkdBRdpOnWJU3OTmkdRDO+Z2UnaOfpuacpjhT5PDdspdJs8lU2YAJi+6OCBmfMkAeSYOyLnJIDt0+0R7XyVJQ6FBgGA1jebcW0aopzSYq7Q3owIBhTu2wmfNrQanhG9uxleFQIMPOzuzvZygVsFKqQdBoDxhSqKLJaQOtNhaUZiK9kpKQN6TiLcsPqYv7O2tU2QtwzLZj/CH1p+eZC3S0JkzEhSSXSogEOAC1RzEV7lljBMYO5SWrnXdGquWhEm3j2KNil4DMV/7F5/xK9coMXbapigoIAYN1Lkh/XnE92ywDMSoAjtFZ8VEwRKkoSwAAqWHUwqX5D70jW2lYsRdnCFkhwD8dNzaRzOav/DqL/CH6R0XbOdhsEyn/AISM2qQTQ+bUjm06b/h1jeB6R6OBUjxer3L/ANKN2TMMok5EoHIzK/8AGOn3BbAUBOamrHKEq/w7byn3XDrsdNxjxNQO2/X1frE/Upu2vZ6PR1wpmu1qGUXam6FGbaGluAXQpKxyI/CHzaWQkJcO+9y8Ic9RONObpPtG9PegupScWPgv+zqDlIL1qAc41VPsa85cvmlMLdwz7Kqzo7WWMYdKlMqrGlRqzRcVZLEclYeZHvBSSTaERfJJk982ayCRNXLlIK0pGEDiQ5Ybg5j2KM26bNhUpMxVEkhlZkCgjIdiaoTkTsM3ZffZgAzGA+VJPuwg5M28kDJEwnjhH1Mc2stnWsskFR4fXdGwDEghiKF9DEjwQbLe668D8dviT3JA5rJ9kiC8m13jMTiEuRJfITCoK6O45iAH6O7CkmbPUl+zwpQ+QWp6+aQl/MiHeVLB3jy+oOcEsMF9CpZX9AOTa7wlrUZ4HZhJqgJIxUZyO8nXNos2qZ2st34xbvKSooIBBLMQKFvKFy7rVh7py9jugMka8DsD5b+z27pQtCVWdRCZoBMpeoVufcfTOFm13RaWJUhagCx7wXU6Fia8IYb0lCWsTkEAiuf5pFHaOX2qlqlrJx99PecEKqQHozuGBamUbgknpmdUpL5RI9nbvVLTOnLdP7JQCSKl1JAxPlUUGdNKOd2XtomY070exHHjCDd19LCsC1EgDCAa0+VzVqOBw4w1bLT0ptAqMKkqBPBsX/UQeSNTQGGXPC2XFTcM6YnKoPUDiYjttrJBAzNIpW68pcy1KTLUFHCHYg5E7uBEeyZqROlhagkYgS5agLwiUfkUwkuHIufpNnYbIpL+IoSxZ2Khz0Mc5XP7hTDh+lG2umXLGSllTfw8PMu8LWzuzk62KOHuSx45qh3RwHzK4Dm0ehj1G2ePmXKdIi2duubaVdlKTiNCdEpDqqo6COgXXswizJOOcVrJc4QAkUZq1PnTyi7ZzIscnsJAZIqpR8S1b1H6ZCFy9r3KnALCJMuTk6R6XT43FKzTaC2Dwgu0KCzV4sWu0uYozprJJf8A+6QeGNBZmmmNX6LZqSJ8pWEMUrTiObgpU1D8qesO8655aq9nLV/THFrttBlzAUqKMQZx+eAg/LvaenKf1Sfwh3UYnztHn9LO8dehyva5bJKQZk6UEpcCmbnQBJrHsI18XvPnSwiatKkpLgAMXyd3PGPYyGLW2MlJp+BuswSgsAwYtoAWpCvec3FMJAw6dCRlpRhyhgVOWTmCNwor1iG87tE1BWO7MDcAvQDgrQHWg8osUlGVsuyxbjoJ7AWtpS06GYeuBLfWHlKHqkxzPZTEDMlkFKsImJBDElBIIY8FH+mH67bViSFCK35IqLsyYtmWjEN4r6awp33JwK7RAJT8QD04saiG9TKqHB4GBF4KVkplfxJHvASVqmFjk4u0ALps6poViVQncCTprkKNvgbe1iNn8CixLsah+Iy+sGbns6kGZokFJT/NiceXdfnGX1Z+0SX1ES1wkXp9xHP72suL9rLDHNSRmDqpO8cNIrWW+NDzYkdN0FsJQooV5g7xx48fyfbNst+tKxAiSNZhYpfXu0Kj5c4tU4tfIgljlCXxHNd0yptnRMsoQigUk76EFKizlqipcGJLq2aVMTMVaEhyAE95sJFXxaHLKJrksUqxSezllaw+LFMINTmUoHdSIo3req1vU/nhE8pxT1sohjm4cXpFdOydikrK50xVoIPdlhREtA3E5qr5DhG94X7QS5YCUiiUIDAcEpECrBZZtomiVLzNSS5CU6kt6DWHu4tmxJAPZ95qrmEYlHk+BA3Cp14l8p+TKx4fHkW7Ls1aZ4xLwyUfNMNf6R9WiRew8o0VbgTwQw6kmH6zgpPew+YqeqqxHa7Tipp69YNQSFPPNs5ZfGxAlVE4q80/Y/SEm+rGQg5d06bso6xtRNZIc+2Uc/t8oKBfVx5iDxyp2BkuUaYphVEqg5KtTh8JL7g8A0owkoOhb7QSu+ezpOtecXZI842jzsGTtZOL8Mktc1JG47oyMmpQS+MV4iMhC8Fkp7GCRZFnKUs/ywTsGz0yd3eyKBTvKYAVB0JMWEbdWdPhs8w+ZQB1cxGv9Jy0g4LPLH8S1K/4pHvEPbm/oreVIMp2TmSlpXKZWAkpAmtmGUC8rIimesEUSzJLqBCFVI+RR+kI8/8ASZbT4RJT/DKJ/wCSjGtz7eTzPH60vHKV3Vd1AwP8TJAcbwdOMMhimvIqU0zpJJSMWY3iI50/EKKT5HOIZUxUs/syCkhwnMEGoKDqOEazJkmZVSVJPCNZiIpU8hKwoDNJDHQYgfcRVnzhXhXrGtulSkoX2ZViKSA5+nKFSZb1qITMJD93TPR+fuImyRbZb07VBC9LD2k5NcKEjEtQqQMiBxOTceEWZ9uARjSnAhIwSxx1w/Md6t5MDruR4palHA5XMP7oAwpGuZPWIJdp7ReNZaVKYMNdyRuG8wP1Q+t2Epl5KxBBcrUAeAByYb4p2qYSoIQCpRLADeYpqtRKpk7w6J3kmgbgM4Zdj9nyCJ09WA/Cn4q6q3E7oOMBWTIoob9nbuFllBIbEaqVmSrXyAyEFO34vFaUlAFHaI514y00FTFCdHnPbssTA+sULxtqJSSTuinbL70Ge4fWFjaa1KUMPCsdZqixfvy9VTlvkHpEM8Mgb/yRGWGyFSg+QqfKILxnUWoZFQCfX6Rq9BsW76k4VpWMlj1FPtEUlb8CIYJ1i7aXhLJaoJIoYXp92zUHLmCCItxZK0efnw8thaz2kEMtgd+h8+MZA1BmAVQroTGQxqD2IU80dUboVwHSPSSfLlGJs85RZKC+5q+kWv7vWjNaFpHFCvcxNaReUFzBv9Y1SsPBaTcidS/OL0u60JDsnzjbQNjbsZPUbKP1hSUyXaSsnvAgsoAfIDqWYvyNzl9moItANfDNTruxaHnCDOtKuxCQe6hwz0Acq+p6QU2d2lLCzTpicDMntU4kngSKp4P5RM38mWduoKSGtdl+XDM8iAr+k/R4X7+sbv8As1gkNVJHV84Iz7GUh0pxJ0DlQ/kmJDtwIiqlb5ptaOCcRHUQNGRbW0BlyldnhZ5imBzcpGR5v7mIVoISJSA6U1WQaE+r8IZ7PYXBASuWlTuVf5q6Oc/CnjmXaLkqwS5acKQxKgh9yjVZ/lTTrGLGhjzyqhauWxIWsLmY8KD4QlRrxYFjloIdJdtmM0iRhHzLZPoawDvy29gZfYABeEEob4cxj3e+cUxta9JkmZLOuEuOVHjqrwA+UtjPNkzjWdNSlO5MA7wvVKXCKDIF6njHlnmotDsZpADnEUpFP4s+kD1X7ZJBLyVFQ+JTLHLDSBVN0FwaV0FrjkFQM1YIQKufibdC/fNsMyYpqOfSJ7XtmickhCwVGiUZNxILdIVbxmrT3ncuA2mRJMNUHYvkvIcn2pKEYUn+JWnl5wvWq1hZCSGAdhqSdTFddqUfF70j0T0kd4gDjDYwoXKdk6UjM5eb9IxVRhCnB9OJ3NAcT1BSky1lSNHr09oJWG4LVM7xeWneslL+Qz9IJpLbYtSb0kWkTpaVYchvJrGRcsuyCviWkngSYyFueP2GlP0P9lZFEpSkfupA+kWP1ncK8x7RWRK3mPe1SnI9T9o85lyRpabL2uaEnjhr1zihbdkSsd1eDgqoPPMesWF7QoSWSorVuQCs9EvEiJtsm+GV2afmnKCf9gdR9IZDuLwLnwfkCo2LOsxAIybEfoICXrcKZasClgnJkqDcHDO8dCkXIs/51oWr92WMCetVHqIIWe7ZUrwS0pPzVKv6i5h6nNO5bFNRqo6Od3bPtNlAYqKOLj3oeogxL2nUrObLQf38SfcQ2TEjefQwPtN1SF+KWl94Ck9cOcd3U/KM4NeGAxessKxzLbK/kUVFuAbhAa8ts5YmIKElUtDsgPUEEEknUu8Mlp2WsysgU/zP/wAg8Upmw8s+FX+wH2MHGeP7BlGYp2DaMLWpUwkLWXL73ox9GgmbWF7n0eLVt2Ewhzgbd3nPkkJJPKAIuyWkslS0F2YkiozofaOlCEvxY2HUSiqkhiu28MMxKlGoqGIZxoU5sd+kA7+krE1YWkA4iSMWLxVzaNexWKvi9D1ES26aFyyWShaR3iolyMhhBLEjcGhTxOLKI54zEi0kY1NSsSfrSyzrJbJy/vEZkVLOQ+cWpNjUcgY9FVR5Du2ZZZEyaoISXJejgZAk+gghY7CqSsTVYF4SO66iXJCQfCzh3HFoYNhrg7RcwrdBCO4SGqTUjewH+6Ld53YqWslQINRiSxB0BYj8n0S80OTgGsU6UkLf94poLYlUpmdI3G003Uq6mBVrsWFRAmAsWLhq+0VuxVvEH2os7vyX+BhO1EzerqYyF7szqofnnGR3Zid/Il/aHn+3caqzUShvZRI+hhmuy6bNMGLGbT5qZP8AQGf1jl4kM/7Ily4xqUkJD0FCHPGsELkt36uslEw4lsAlJdIqCCpWrHUVFdawmWKKXxHRnKT2jr9mCZYZCEoG5ISPZvrExncPWIhOaiufnEhwaCEKSG0eKnmNe34+n4x4oJ8vKNxZ+LD88YFyNSRXUFHIhuceos5PxCN7faJUkOtTfKn4jwAFTASxXhaZiioShhegUWAGj0qYyjRi7FKElS1sBmSWSObwPXtAknBZk9qdV5S08/jPlSB9vs6P821zxTJI8KeAB1PUwDt20DjDZpeEZdovP+VP1PSCim/CBbS8jDa7DieZabSzjRgkJ4bkwt2622ZKv8PK7ZWXaTCcA8vm8hTjFWz3ZNmNixzNxUe760f1gtJuMAd9XJIPufsYOor8mA3J/igE5cqUQ53AAcgABFuzXfMmiiC3zGg6mGCRYpSKpQH3q7x9aDpE0y0F8+v4xss3+1ArD7YIs+zaBVageCR9T9oJyLvlIHdSPPM9Y97SPJs1KU4lqCU71FukJlOUvsfGMY/QIt9oKFsEqDOxD1oC4PDWPLVtEDJwzkvQspO9mrqk+UQXrfEqayUAnCfGRqaDC/1DQs3rPHhBUTqMDHpiPo0NWBTStbBeXjZXmS5ZyW354xEZSPnHURVmK3P0IiIkbx1itQfsmeRei0uSn5/aMimpUexvF+weaM7bMt7QT2enS0zULmDFhUCEl2cEEFRBch9IC4oklz2IIjJQtUMhkp7OrXttepExJEtMxCkBdO6XLhTZjMPlkY2s+3UgjvypqTuYHStQeUIqbUVJS5cgfUn6xuJkLj08eKs6eZ8nXgb7Rt0cpVlYb1rD9Kt1ilaNsp791LDe4Hs59YB2VOJTaB1KNaJAdRpwi1a7CBjWnEUd0ow1OFaSoEv8KSMJ47o548adMHuTatEqdppqTiwBSjw14qJJPpEw2pnlLFKcW9+6P5UsTzMQ2yxAqUpOKhYpAAAaWhdNwqdD5RHMu9KVhBUrEpS0JLAB0khD/wARw/1QK7VWE5ZCrNmqWrEtRUdHZh/CkUHKPDOO+JJlkHZLmAqOHyYsUpUzaAkmrUESy5YMhJwgKwFTlLVE4AV1UU0CTQu8Nc4pa/4FcZN7NrLftol0E0qG5dfUModYLWfbD/UlEcUEEebd0jk8CZt2JVNLFQSZqwQABhAmoSCP3WXu+HQVFQWMHAylEroB3XxpKu0BBOQCUn+cZ5QtrFL6GKWSI6We/JUyiVh+ND0UxiadbUoGJawlO9Rp65wkrutNQVr+Ju6PhkpnDM1zKeUbi6UlqqYqoSlyypSFgEh2qpnbR/JTxwvz/Qb3ZV4Cdt2oH/hR/Mug5JFTzaAFptSpisUxRWrech5DIQRN2JWpCXKThlBTAEd8Lq4NS6c+MVbNdiVmWHmd5KFKLJZIWsIGr0LnLdlUhsJY4rQmfck9lQ2iKd5TsQBz3+cRqUcsoimVijjexUZ1ohLb497WjPECi2ceYo07RIpPEx5ERmcYyOM0R9pFizy98aSxFuXHGosylRv2kQExkccyUz48MyI4xo0w2KosSrQhOEjEFDM93NlZPxbyrFQxhEY1ZydFvtZL+FbeYeNFzJTUC3bVs9NcoqmIyYzidy/RdE2V8qtNR+7p/V1EbdtJ+Vfpl1gfHsdxO5FtEyU1UqfgzZ/Zo9WqTVgvKnhzY57w7esVIxUbxO5Hhj2PBGRoJsFR48Y0YI0w1VLeIzIiwTGsaaQdhHkTGMjLOo//2Q=="
+                                 alt="Madhavakara"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Madhavakara</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Diagnosis Specialist)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Madhavakara</h3>
+                                <button onclick="toggleFoodInfo('doctor5')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="doctor5-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="doctor5-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Time Period</h4>
+                                    <p class="text-sm text-gray-600">Circa 7th Century CE</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Major Contributions</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Authored Madhava Nidana, systematic classification of diseases, advanced diagnostic methods
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Legacy</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Master of Diagnosis, created comprehensive disease classification system still used today
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor Item 6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 p-4 flex flex-col items-center justify-center">
+                            <img src="https://cdn.exoticindia.com/images/products/thumbnails/t800x600/books/bhavaprakasa_of_bhavamisra_original_text_along_idi036.jpg"
+                                 alt="Bhavamisra"
+                                 class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-medium text-gray-700">Bhavamisra</p>
+                            <p class="text-xs text-teal-600 font-semibold">(Encyclopedic Scholar)</p>
+                        </div>
+                        <div class="md:w-2/3 p-4">
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="text-lg font-bold text-gray-800">Bhavamisra</h3>
+                                <button onclick="toggleFoodInfo('doctor6')"
+                                        class="bg-teal-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-teal-700 transition-all">
+                                    <span id="doctor6-toggle">Show Details</span>
+                                </button>
+                            </div>
+                            <div id="doctor6-info" class="food-info hidden space-y-4 text-left">
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <h4 class="font-semibold text-green-600 mb-1">Time Period</h4>
+                                    <p class="text-sm text-gray-600">Circa 16th Century CE</p>
+                                </div>
+                                <div class="border-l-4 border-amber-500 pl-4">
+                                    <h4 class="font-semibold text-amber-600 mb-1">Major Contributions</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Authored Bhavaprakasha, comprehensive compilation of Ayurvedic knowledge, included new medicinal plants
+                                    </p>
+                                </div>
+                                <div class="border-l-4 border-purple-500 pl-4">
+                                    <h4 class="font-semibold text-purple-600 mb-1">Legacy</h4>
+                                    <p class="text-sm text-gray-600">
+                                        Created one of the last great classical Ayurvedic texts, integrated traditional and contemporary knowledge
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="space-x-4">
+            <a href="{{ url_for('login') }}"
+               class="bg-teal-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-teal-700 transition-all duration-300 inline-block">
+                Get Started
+            </a>
+            <a href="{{ url_for('register') }}"
+               class="border-2 border-teal-600 text-teal-600 px-8 py-3 rounded-lg text-lg hover:bg-teal-600 hover:text-white transition-all duration-300 inline-block">
+                Create Account
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Script -->
+<script>
+    function toggleFoodInfo(foodId) {
+        const foodInfo = document.getElementById(foodId + '-info');
+        const toggleButton = document.getElementById(foodId + '-toggle');
+
+        if (foodInfo.classList.contains('hidden')) {
+            foodInfo.classList.remove('hidden');
+            toggleButton.textContent = 'Hide Details';
+        } else {
+            foodInfo.classList.add('hidden');
+            toggleButton.textContent = 'Show Details';
+        }
+    }
+</script>
+
+<!-- Styles -->
+<style>
+    .food-card:hover {
+        transform: translateY(-2px);
+        transition: all 0.3s ease;
+    }
+
+    .food-info {
+        animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .bg-white {
+        transition: all 0.3s ease;
+    }
+
+    .bg-white:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+{% endblock %}

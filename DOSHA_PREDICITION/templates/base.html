@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dosha Prediction System{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="gradient-bg shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-leaf text-white text-2xl"></i>
+                    <h1 class="text-white text-xl font-bold">Dosha Predictor</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    {% if session.user_id %}
+                        <span class="text-white">Welcome, {{ session.username }}!</span>
+                        {% if session.role == 'admin' %}
+                            <a href="{{ url_for('admin_dashboard') }}" class="text-white hover:text-teal-200">Admin Panel</a>
+                        {% endif %}
+                        <a href="{{ url_for('dashboard') }}" class="text-white hover:text-teal-200">Dashboard</a>
+                        <a href="{{ url_for('predict') }}" class="text-white hover:text-teal-200">New Prediction</a>
+                        <a href="{{ url_for('logout') }}" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Logout</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="text-white hover:text-teal-200">Login</a>
+                        <a href="{{ url_for('register') }}" class="bg-white text-teal-600 px-4 py-2 rounded-lg hover:bg-gray-100">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mx-auto px-4 mt-4">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} bg-{% if category == 'error' %}red{% else %}green{% endif %}-100 border border-{% if category == 'error' %}red{% else %}green{% endif %}-400 text-{% if category == 'error' %}red{% else %}green{% endif %}-700 px-4 py-3 rounded mb-4">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white text-center py-6 mt-12">
+        <p>&copy; 2025 Dosha Prediction System. Powered by Ayurveda and AI.</p>
+    </footer>
+</body>
+</html>
